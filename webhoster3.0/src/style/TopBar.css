@@ -1,0 +1,57 @@
+/* TopBar.css */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1457a3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+   
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+  }
+   
+  nav ul li {
+    display: inline;
+    background-color: #06234f;
+  }
+   
+  nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+   
+  .login-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+   
+  .online {
+    color: green;
+  }
+   
+  .offline {
+    color: red;
+  }
+   
+  .auth-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+   
+  .profile-image {
+    border-radius: 50%;
+    padding-top: 15px;
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 20px;
+  }
