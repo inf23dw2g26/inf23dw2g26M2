@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import api from "../api";
-import AuthContext from "./components/authContext";
+import api from "../server";
+import AuthContext from "../components/authContext";
 
 
 const ClienteList = () => {
@@ -16,7 +16,7 @@ const ClienteList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const clientesResult = await api.get("/clientes");
+        const clientesResult = await api.get("/cliente");
         const clientesData = clientesResult.data;
 
         setClientes(clientesData);
@@ -58,7 +58,7 @@ const ClienteList = () => {
 
   const deleteCliente = async (id) => {
     try {
-      await api.delete(`/clientes/${id}`);
+      await api.delete(`/cliente/${id}`);
       setClientes(clientes.filter((cliente) => cliente.id !== id));
       setFilteredClientes(filteredClientes.filter((cliente) => cliente.id !== id));
     } catch (error) {
@@ -95,7 +95,7 @@ const ClienteList = () => {
           />
         </label>
         {authenticated ? (
-          <Link to="/clientes/new" className="new-consulta">
+          <Link to="/cliente/new" className="new-consulta">
             Novo Cliente
           </Link>
         ) : (
@@ -109,6 +109,11 @@ const ClienteList = () => {
             <th>Nome do Cliente</th>
             <th>Tipo de Conta</th>
             <th>Contacto do Cliente</th>
+            <th>NIF</th>
+            <th>Email</th>
+            <th>Plano</th>
+            <th>Periodicidade de Pagamento</th>
+            <th>Data do último Pagamento</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -118,10 +123,21 @@ const ClienteList = () => {
               <td>{cliente.nome}</td>
               <td>{cliente.tipo_de_conta}</td>
               <td>{cliente.contacto}</td>
+              <td>{cliente.numero_fiscal}</td>
+              <td>{cliente.email}</td>
+              <td>{cliente.plano}</td>
+              <td>{cliente.periodicidade_de_pagamento.replace("T", " ")
+                  .split(":")
+                  .slice(0, 2)
+                  .join(":")}</td>
+              <td>{cliente.data_ultimo_pagamento.replace("T", " ")
+                  .split(":")
+                  .slice(0, 2)
+                  .join(":")}</td>
               <td>
                 {authenticated ? (
                   <>
-                    <Link to={`/clientes/edit/${cliente.id}`} className="edit-btn">
+                    <Link to={`/cliente/edit/${cliente.id}`} className="edit-btn">
                       Editar
                     </Link>
                     <button onClick={() => deleteCliente(cliente.id)} className="delete-btn">

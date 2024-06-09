@@ -17,16 +17,16 @@ const TopBar = () => {
                         <Link to="/">Dashboard</Link>
                     </li>
                     <li>
-                        <Link to="/pagamentos">Pagamentos</Link>
+                        <Link to="/pagamento">Pagamentos</Link>
                     </li>
                     <li>
-                        <Link to="/clientes">Clientes</Link>
+                        <Link to="/cliente">Clientes</Link>
                     </li>
                     <li>
-                        <Link to="/planos">Planos</Link>
+                        <Link to="/plano">Planos</Link>
                     </li>
                     <li>
-                        <Link to="/dominios">Dominios</Link>
+                        <Link to="/dominio">Dominios</Link>
                     </li>
                 </ul>
             </nav>

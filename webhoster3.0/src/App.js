@@ -32,14 +32,10 @@ function App() {
             <Route path="/pagamentos"/>
             <Route path="/pagamentos/new/*" />
             <Route path="/pagamentos/edit/:id/*"/>
-            <Route path="/clientes" element={<ClienteList/>} />
-            <Route path="/clientes/new/*"/>
+            <Route path="/cliente" element={<ClienteList/>} />
+            <Route path="/cliente/new/*"/>
             <Route path="/cliente/edit/:id/*" />
             <Route path="/perfil"/>
-            <Route
-              path="/relatorio/:numero_de_utente"
-              element={<RelatorioPaciente />}
-            />
           </Routes>
         </div>
       </Router>
