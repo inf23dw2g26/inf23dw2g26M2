@@ -16,6 +16,7 @@ import PlanoEdit from './resources/PlanoEdit';
 import PlanoNew from './resources/PlanoNew';
 import PagamentoEdit from './resources/PagamentoEdit';
 import PagamentoNew from './resources/PagamentoNew';
+import Dashboard from './resources/Dashboard';
 
 
 const clientId = "146954126349-jlp6bek411g29mj7dl27p70mssiihf9v.apps.googleusercontent.com";
@@ -39,7 +40,7 @@ function App() {
         <div className="App">
           <TopBar />
           <Routes>
-            <Route path="/"/>
+            <Route path="/dashboard" element={<Dashboard/>} />
             <Route path="/pagamento" element={<PagamentoList/>} />
             <Route path="/pagamento/new/*" element={<PagamentoNew/>}/>
             <Route path="/pagamento/edit/:id/*" element={<PagamentoEdit/>}/>
