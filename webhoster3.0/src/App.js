@@ -9,6 +9,7 @@ import ClienteEdit from './resources/ClienteEdit';
 import DominioList from './resources/DominioList';
 import PagamentoList from './resources/PagamentoList';
 import PlanoList from './resources/PlanoList';
+import DominioEdit from './resources/DominioEdit';
 
 
 const clientId = "146954126349-jlp6bek411g29mj7dl27p70mssiihf9v.apps.googleusercontent.com";
@@ -41,7 +42,7 @@ function App() {
             <Route path="/cliente/edit/:id/*" element={<ClienteEdit/>} />
             <Route path="/dominio" element={<DominioList/>} />
             <Route path="/dominio/new/*"/>
-            <Route path="/dominio/edit/:id/*"/>
+            <Route path="/dominio/edit/:id/*" element={<DominioEdit/>}/>
             <Route path="/plano" element={<PlanoList/>} />
             <Route path="/plano/new/*"/>
             <Route path="/plano/edit/:id/*"/>
@@ -53,5 +54,3 @@ function App() {
 }
 
 export default App;
-
-//usar element depois de path para definir a variavel a ser chamada
