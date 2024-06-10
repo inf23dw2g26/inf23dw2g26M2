@@ -7,9 +7,14 @@ import TopBar from './components/topbar';
 import ClienteList from './resources/ClienteList';
 import ClienteEdit from './resources/ClienteEdit';
 import DominioList from './resources/DominioList';
+import DominioEdit from './resources/DominioEdit';
+import DominioNew from './resources/DominioNew';
 import PagamentoList from './resources/PagamentoList';
 import PlanoList from './resources/PlanoList';
-import DominioEdit from './resources/DominioEdit';
+import PlanoEdit from './resources/PlanoEdit';
+import PlanoNew from './resources/PlanoNew';
+import PagamentoEdit from './resources/PagamentoEdit';
+import PagamentoNew from './resources/PagamentoNew';
 
 
 const clientId = "146954126349-jlp6bek411g29mj7dl27p70mssiihf9v.apps.googleusercontent.com";
@@ -35,17 +40,17 @@ function App() {
           <Routes>
             <Route path="/"/>
             <Route path="/pagamento" element={<PagamentoList/>} />
-            <Route path="/pagamento/new/*" />
-            <Route path="/pagamento/edit/:id/*"/>
+            <Route path="/pagamento/new/*" element={<PagamentoNew/>}/>
+            <Route path="/pagamento/edit/:id/*" element={<PagamentoEdit/>}/>
             <Route path="/cliente" element={<ClienteList/>} />
             <Route path="/cliente/new/*"/>
             <Route path="/cliente/edit/:id/*" element={<ClienteEdit/>} />
             <Route path="/dominio" element={<DominioList/>} />
-            <Route path="/dominio/new/*"/>
+            <Route path="/dominio/new/*" element={<DominioNew/>}/>
             <Route path="/dominio/edit/:id/*" element={<DominioEdit/>}/>
             <Route path="/plano" element={<PlanoList/>} />
-            <Route path="/plano/new/*"/>
-            <Route path="/plano/edit/:id/*"/>
+            <Route path="/plano/new/*" element={<PlanoNew/>}/>
+            <Route path="/plano/edit/:id/*" element={<PlanoEdit/>}/>
           </Routes>
         </div>
       </Router>

@@ -50,7 +50,7 @@ const ClienteEdit = () => {
 
   return (
     <div className="cliente-edit">
-      <h2>Editando Cliente</h2>
+      <h2>Editar Cliente</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Nome do Cliente:

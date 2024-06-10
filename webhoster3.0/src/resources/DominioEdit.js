@@ -48,7 +48,7 @@ const DominioEdit = () => {
 
   return (
     <div className="dominio-edit">
-      <h2>Editando Domínio</h2>
+      <h2>Editar Domínio</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Nome do Domínio:
@@ -71,7 +71,7 @@ const DominioEdit = () => {
           <input type="datetime-local" name="data_de_fim" value={dominio.data_de_fim} onChange={handleInputChange} />
         </label>
         <button type="submit">Guardar</button>
-        <Link to="/dominios" className="cancel-btn">Cancelar</Link>
+        <Link to="/dominio" className="cancel-btn">Cancelar</Link>
       </form>
     </div>
   );
