@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import api from "../server";
 
 const DominioNew = () => {
@@ -10,23 +10,35 @@ const DominioNew = () => {
     estado: false,
     data_de_inicio: "",
     data_de_fim: "",
+    cliente: "",
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setDominio({ ...dominio, [name]: value });
-  };
+  useEffect(() => {
+    const fetchLastCliente = async () => {
+      try {
+        const response = await api.get("/cliente?_sort=id&_order=desc&_limit=1");
+        const lastCliente = response.data[0];
+        if (lastCliente) {
+          setDominio((prevState) => ({ ...prevState, cliente: lastCliente.id }));
+        }
+      } catch (error) {
+        console.error("Error fetching last cliente:", error);
+      }
+    };
 
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
-    setDominio({ ...dominio, [name]: checked });
+    fetchLastCliente();
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setDominio({ ...dominio, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await api.post("/dominio", dominio);
-      navigate("/dominio");
+      navigate("/dominios");
     } catch (error) {
       console.error("Error creating dominio:", error);
     }
@@ -34,30 +46,30 @@ const DominioNew = () => {
 
   return (
     <div className="dominio-new">
-      <h2>Novo Domínio</h2>
+      <h2>Novo Dominio</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Nome do Domínio:
-          <input type="text" name="nome" value={dominio.nome} onChange={handleInputChange} />
+          Nome:
+          <input type="text" name="nome" value={dominio.nome} onChange={handleInputChange} required />
         </label>
         <label>
           Código TLD:
-          <input type="text" name="codigo_TLD" value={dominio.codigo_TLD} onChange={handleInputChange} />
+          <input type="text" name="codigo_TLD" value={dominio.codigo_TLD} onChange={handleInputChange} required />
         </label>
         <label>
           Estado:
-          <input type="checkbox" name="estado" checked={dominio.estado} onChange={handleCheckboxChange} />
+          <input type="checkbox" name="estado" checked={dominio.estado} onChange={handleInputChange} />
         </label>
         <label>
           Data de Início:
-          <input type="datetime-local" name="data_de_inicio" value={dominio.data_de_inicio} onChange={handleInputChange} />
+          <input type="datetime-local" name="data_de_inicio" value={dominio.data_de_inicio} onChange={handleInputChange} required />
         </label>
         <label>
           Data de Fim:
-          <input type="datetime-local" name="data_de_fim" value={dominio.data_de_fim} onChange={handleInputChange} />
+          <input type="datetime-local" name="data_de_fim" value={dominio.data_de_fim} onChange={handleInputChange} required />
         </label>
         <button type="submit">Guardar</button>
-        <Link to="/dominio" className="cancel-btn">Cancelar</Link>
+        <Link to="/dominios" className="cancel-btn">Cancelar</Link>
       </form>
     </div>
   );
