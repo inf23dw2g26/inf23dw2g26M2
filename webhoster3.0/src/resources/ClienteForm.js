@@ -16,7 +16,7 @@ const ClienteList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const clientesResult = await api.get("/clientes");
+        const clientesResult = await api.get("/cliente");
         const clientesData = clientesResult.data;
 
         setClientes(clientesData);
@@ -58,7 +58,7 @@ const ClienteList = () => {
 
   const deleteCliente = async (id) => {
     try {
-      await api.delete(`/clientes/${id}`);
+      await api.delete(`/cliente/${id}`);
       setClientes(clientes.filter((cliente) => cliente.id !== id));
       setFilteredClientes(filteredClientes.filter((cliente) => cliente.id !== id));
     } catch (error) {
@@ -95,7 +95,7 @@ const ClienteList = () => {
           />
         </label>
         {authenticated ? (
-          <Link to="/clientes/new" className="new-consulta">
+          <Link to="/cliente/new" className="new-consulta">
             Novo Cliente
           </Link>
         ) : (
@@ -121,7 +121,7 @@ const ClienteList = () => {
               <td>
                 {authenticated ? (
                   <>
-                    <Link to={`/clientes/edit/${cliente.id}`} className="edit-btn">
+                    <Link to={`/cliente/edit/${cliente.id}`} className="edit-btn">
                       Editar
                     </Link>
                     <button onClick={() => deleteCliente(cliente.id)} className="delete-btn">
