@@ -24,7 +24,7 @@ const PlanoNew = () => {
     e.preventDefault();
     try {
       await api.post("/plano", plano);
-      navigate("/planos");
+      navigate("/plano");
     } catch (error) {
       console.error("Error creating plano:", error);
     }
@@ -67,7 +67,7 @@ const PlanoNew = () => {
           <input type="text" name="fidelizacao" value={plano.fidelizacao} onChange={handleInputChange} />
         </label>
         <button type="submit">Guardar</button>
-        <Link to="/planos" className="cancel-btn">Cancelar</Link>
+        <Link to="/plano" className="cancel-btn">Cancelar</Link>
       </form>
     </div>
   );

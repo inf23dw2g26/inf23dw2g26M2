@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TopBar from './components/topbar';
 import ClienteList from './resources/ClienteList';
 import ClienteEdit from './resources/ClienteEdit';
+import ClienteNew from './resources/ClienteNew';
 import DominioList from './resources/DominioList';
 import DominioEdit from './resources/DominioEdit';
 import DominioNew from './resources/DominioNew';
@@ -43,7 +44,7 @@ function App() {
             <Route path="/pagamento/new/*" element={<PagamentoNew/>}/>
             <Route path="/pagamento/edit/:id/*" element={<PagamentoEdit/>}/>
             <Route path="/cliente" element={<ClienteList/>} />
-            <Route path="/cliente/new/*"/>
+            <Route path="/cliente/new/*" element={<ClienteNew/>}/>
             <Route path="/cliente/edit/:id/*" element={<ClienteEdit/>} />
             <Route path="/dominio" element={<DominioList/>} />
             <Route path="/dominio/new/*" element={<DominioNew/>}/>

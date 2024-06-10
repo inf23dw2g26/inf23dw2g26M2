@@ -26,7 +26,7 @@ const DominioNew = () => {
     e.preventDefault();
     try {
       await api.post("/dominio", dominio);
-      navigate("/dominios");
+      navigate("/dominio");
     } catch (error) {
       console.error("Error creating dominio:", error);
     }
@@ -57,7 +57,7 @@ const DominioNew = () => {
           <input type="datetime-local" name="data_de_fim" value={dominio.data_de_fim} onChange={handleInputChange} />
         </label>
         <button type="submit">Guardar</button>
-        <Link to="/dominios" className="cancel-btn">Cancelar</Link>
+        <Link to="/dominio" className="cancel-btn">Cancelar</Link>
       </form>
     </div>
   );
