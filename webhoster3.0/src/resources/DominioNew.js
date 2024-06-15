@@ -38,7 +38,7 @@ const DominioNew = () => {
     e.preventDefault();
     try {
       await api.post("/dominio", dominio);
-      navigate("/dominios");
+      navigate("/dominio");
     } catch (error) {
       console.error("Error creating dominio:", error);
     }

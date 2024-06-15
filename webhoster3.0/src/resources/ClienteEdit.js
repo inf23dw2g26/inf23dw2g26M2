@@ -42,7 +42,7 @@ const ClienteEdit = () => {
     e.preventDefault();
     try {
       await api.put(`/cliente/${id}`, cliente);
-      navigate("/clientes");
+      navigate("/cliente");
     } catch (error) {
       console.error("Error updating cliente:", error);
     }

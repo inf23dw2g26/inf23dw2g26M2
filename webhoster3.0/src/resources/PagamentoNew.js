@@ -36,7 +36,7 @@ const PagamentoNew = () => {
     e.preventDefault();
     try {
       await api.post("/pagamento", pagamento);
-      navigate("/pagamentos");
+      navigate("/pagamento");
     } catch (error) {
       console.error("Error creating pagamento:", error);
     }

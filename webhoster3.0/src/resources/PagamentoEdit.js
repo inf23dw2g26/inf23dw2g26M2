@@ -34,7 +34,7 @@ const PagamentoEdit = () => {
     e.preventDefault();
     try {
       await api.put(`/pagamento/${id}`, pagamento);
-      navigate("/pagamentos");
+      navigate("/pagamento");
     } catch (error) {
       console.error("Error updating pagamento:", error);
     }

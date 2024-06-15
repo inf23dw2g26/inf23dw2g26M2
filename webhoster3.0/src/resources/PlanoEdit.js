@@ -38,7 +38,7 @@ const PlanoEdit = () => {
     e.preventDefault();
     try {
       await api.put(`/plano/${id}`, plano);
-      navigate("/planos");
+      navigate("/plano");
     } catch (error) {
       console.error("Error updating plano:", error);
     }

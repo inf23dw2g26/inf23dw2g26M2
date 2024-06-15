@@ -14,9 +14,6 @@ const TopBar = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Dashboard</Link>
-                    </li>
-                    <li>
                         <Link to="/pagamento">Pagamentos</Link>
                     </li>
                     <li>

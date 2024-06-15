@@ -40,7 +40,7 @@ const DominioEdit = () => {
     e.preventDefault();
     try {
       await api.put(`/dominio/${id}`, dominio);
-      navigate("/dominios");
+      navigate("/dominio");
     } catch (error) {
       console.error("Error updating dominio:", error);
     }
